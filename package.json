@@ -1,0 +1,23 @@
+{
+  "name": "timelog",
+  "version": "1.0.0",
+  "description": "Small Desktop timelogger",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ian-Henderson06/timelog.git"
+  },
+  "author": "Ian Henderson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ian-Henderson06/timelog/issues"
+  },
+  "homepage": "https://github.com/Ian-Henderson06/timelog#readme",
+  "devDependencies": {
+    "electron": "^13.1.1"
+  }
+}

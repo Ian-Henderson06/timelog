@@ -1,12 +1,8 @@
-
-const body = document.body
-
-body.addEventListener("mouseover", () => {
-    //createBrowserWindow();
-    ipc.send("mouseover", "myred");
+// renderer process
+var ipcRenderer = require('electron').ipcRenderer;
+ipcRenderer.on('store-data', function (event,store) {
+    console.log(store);
 });
 
-body.addEventListener("mouseout", () => {
-    //createBrowserWindow();
-    ipc.send("mouseout", "myred");
-});
+
+SetupServerAddressInputView();

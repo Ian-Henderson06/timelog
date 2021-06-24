@@ -18,7 +18,11 @@ function createWindow() {
         y: 0,
 
         frame: false,
-        alwaysOnTop: true
+        alwaysOnTop: true,,
+
+        webPreferences: {
+            nodeIntegration: true,
+        }
     })
 
     win.height = 500
@@ -30,16 +34,8 @@ function createWindow() {
     //win.webContents.openDevTools(); //TO REMOVE
 
 
-    // Resize on mouse over
-    ipcMain.on("mouseover", () => {
-        console.log('mouseover')
-        win.setSize(300, 40)
-    });
-  
-    ipcMain.on("mouseout", () => {
-        console.log('mouseout')
-        win.setSize(300, 5)
-    });
+   //win.webContents.send('store-data', store);
+  //https://stackoverflow.com/questions/36773711/passing-data-to-windows-in-electron
 }
 
 app.whenReady().then(() => {

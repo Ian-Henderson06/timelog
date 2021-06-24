@@ -40,6 +40,7 @@ input::placeholder{
 
 
 #timelogt{
+    cursor: default;
     padding: 2%;
     padding-right: 2.5%;
     display: inline;
@@ -55,6 +56,15 @@ input::placeholder{
     padding-top: 1.5%;
 }
 
+
+/*Stop selection of text contained in elements that arent text areas*/
+:not(input):not(textarea),
+:not(input):not(textarea)::after,
+:not(input):not(textarea)::before {
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
 
 
 

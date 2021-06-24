@@ -19,5 +19,8 @@
   "homepage": "https://github.com/Ian-Henderson06/timelog#readme",
   "devDependencies": {
     "electron": "^13.1.1"
+  },
+  "dependencies": {
+    "electron-store": "^8.0.0"
   }
 }

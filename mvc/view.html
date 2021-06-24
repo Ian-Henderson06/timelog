@@ -5,12 +5,22 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Timelogger</title>
+    <title>Timelog</title>
+    <link rel="stylesheet" href="lato.css" type="text/css" charset="utf-8" />
     <link rel="stylesheet" href="style.css">
   </head>
-  <body>
-   <script src="view.js"></script>
-   <script src="model.js"></script>
-   <script src="controller.js"></script>
+  <!--<body style="-webkit-app-region: drag">-->
+    <body>
+      <div id="view">
+        <h1 id="timelogt">t |</h1>
+        <input id='serveraddress' type="text" placeholder="SERVER ADDRESS">
+     </div>
+
+    <script src="view.js"></script>
+    <script src="model.js"></script>
+    <script src="controller.js"></script>
   </body>
 </html>
+
+<!--
+https://codepen.io/akshat46/pen/JwqoNN-->

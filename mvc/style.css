@@ -1,6 +1,5 @@
-
 :root{
-   /* CSS HEX */
+   /* PALETTE */
     --eggshell: #f4f1deff;
     --terra-cotta: #e07a5fff;
     --independence: #3d405bff;
@@ -14,6 +13,17 @@ body {
     margin: 0;
     overflow: hidden;
     background-color: var(--eggshell);
+}
+
+h1{
+    display: inline;  
+    padding: 3%;
+    padding-left: 0;
+    text-align: left;
+    letter-spacing: 4px;
+    font-size: 14px;
+    font-family: 'latoregular', Helvetica, sans-serif;
+    color: var(--independence);
 }
 
 input[type=text]{
@@ -54,6 +64,11 @@ input::placeholder{
 #view{
     padding-left: 2%;
     padding-top: 1.5%;
+}
+
+
+.textbutton:hover{
+    cursor: pointer;
 }
 
 

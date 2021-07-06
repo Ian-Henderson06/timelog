@@ -1,35 +1,82 @@
+
+/* Wrappers */
 function SetupServerAddressInputView() {
-    let serverAddressInput = document.createElement('input');
-    serverAddressInput.setAttribute('id', 'serverAddressInput');
-    serverAddressInput.setAttribute('type', 'text');
-    serverAddressInput.setAttribute('placeholder', 'SERVER ADDRESS');
-
-     //On server address pressed
-     serverAddressInput.onkeypress = function (e) {
-        if (!e) e = window.event; //if e is undefined then we will give value to e from window.event
-        var keycode = e.code || e.key;
-
-         if (keycode == 'Enter' || keycode == 'NumpadEnter')  //Enter pressed
-             console.log("Enter has been pressed");
-    }
-    document.getElementById('view').appendChild(serverAddressInput);
+    SetupInputView('SERVER ADDRESS', ControllerAddressEntered)
 }
 
 function SetupNameInputView() {
-    let nameInput = document.createElement('input');
-    nameInput.setAttribute('id', 'nameInput');
-    nameInput.setAttribute('type', 'text');
-    nameInput.setAttribute('placeholder', 'NAME');
+    SetupInputView('NAME', ControllerNameEntered)
+}
+
+
+/* Util Functions */
+function SetupTimeSessionStartView() {
+    
+    // Remove previous input view
+    RemoveInputView()
+
+    let sessionStart = document.createElement('h1');
+    sessionStart.innerHTML = 'START SESSION'
+    sessionStart.setAttribute('id', 'StartSessionButton')
+    sessionStart.setAttribute('class', 'textbutton')
+    sessionStart.addEventListener('click', function () {
+        ControllerTimeSessionStarted()
+    })
+
+    document.getElementById('view').appendChild(sessionStart)
+}
+
+function SetupTimeView() {
+    RemoveTimeSessionStartView()
+
+    let time = document.createElement('h1');
+    time.innerHTML = '0 : 00'
+    time.setAttribute('id', 'Time')
+    time.setAttribute('class', 'textbutton')
+    time.addEventListener('click', function () {
+        ControllerTimeEnd()
+    })
+
+    document.getElementById('view').appendChild(time)
+}
+
+
+function SetupInputView(inputPlaceholder, controllerFunction) {
+    
+    //Remove previous input view
+    RemoveInputView()
+
+    let input = document.createElement('input');
+    input.setAttribute('id', 'MainInput');
+    input.setAttribute('type', 'text');
+    input.setAttribute('placeholder', inputPlaceholder);
 
      //On server address pressed
-     nameInput.onkeypress = function (e) {
+     input.onkeypress = function (e) {
         if (!e) e = window.event; //if e is undefined then we will give value to e from window.event
         var keycode = e.code || e.key;
 
          if (keycode == 'Enter' || keycode == 'NumpadEnter')  //Enter pressed
-             console.log("Enter has been pressed");
+            controllerFunction(input.value); //Passed verification
     }
-    document.getElementById('view').appendChild(nameInput);
+    document.getElementById('view').appendChild(input);
+}
+
+function RemoveInputView() {
+    let input = document.getElementById('MainInput');
+    if(input != undefined)
+        input.remove()
+}
+
+function RemoveTimeSessionStartView() {
+    let input = document.getElementById('StartSessionButton');
+    if(input != undefined)
+        input.remove()
+}
+
+function SetTimeInView(timeText) {
+    let time = document.getElementById('Time');
+    time.innerHTML = timeText
 }
 
 

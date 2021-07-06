@@ -1,4 +1,5 @@
 const { app, BrowserWindow, screen, ipcMain } = require('electron')
+const Store = require('electron-store');
 
 function createWindow() {
     let display = screen.getPrimaryDisplay()
@@ -18,10 +19,11 @@ function createWindow() {
         y: 0,
 
         frame: false,
-        alwaysOnTop: true,,
+        alwaysOnTop: true,
 
         webPreferences: {
             nodeIntegration: true,
+            contextIsolation: false,
         }
     })
 
@@ -31,9 +33,9 @@ function createWindow() {
     win.setMenuBarVisibility(false) // Hides menubar - might not be Linux compatable 
     //win.setResizable(false) // Can't resize
     win.loadFile('mvc/view.html') //
-    //win.webContents.openDevTools(); //TO REMOVE
+    win.webContents.openDevTools(); //TO REMOVE
 
-
+    Store.initRenderer()
    //win.webContents.send('store-data', store);
   //https://stackoverflow.com/questions/36773711/passing-data-to-windows-in-electron
 }

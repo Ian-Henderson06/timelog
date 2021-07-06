@@ -1,6 +1,7 @@
 // renderer process
 var ipcRenderer = require('electron').ipcRenderer;
 const Store = require('electron-store');
+var intervalID = -1
 
 ipcRenderer.on('stored-address', function (event,store) {
     console.log(store);
@@ -29,9 +30,6 @@ if (store.get('address') == undefined) {
 
 
 
-
-
-
 /////////////////////////////////* Functions called by view */////////////////////////////////////////
 
 //Address entered into input box
@@ -49,10 +47,24 @@ function ControllerNameEntered(nameEntered) {
 //Time session started
 function ControllerTimeSessionStarted() {
     SetupTimeView()
-    StartTimer()
+    intervalID = StartTimer()
 }
 
 //Time session ended
-function ControllerTimeEnd() {
-    
+function ControllerTimeEnd(timeInView) {
+    //Clear previous backups to make sure new saved backup is accurate
+    store.delete('saved-time')
+    store.delete('saved-description')
+
+    clearInterval(intervalID)
+
+    store.set('saved-time', timeInView)
+    SetupDescriptionView();
+}
+
+function ControllerDescriptionEntered(descriptionEntered) {
+    store.set('saved-description', descriptionEntered)
+
+    //Loop back to allow a new session to be made
+    SetupTimeSessionStartView()
 }

@@ -24,6 +24,8 @@ h1{
     font-size: 14px;
     font-family: 'latoregular', Helvetica, sans-serif;
     color: var(--independence);
+    width: 80%;
+    margin: 0;
 }
 
 input[type=text]{

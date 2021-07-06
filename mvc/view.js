@@ -13,7 +13,7 @@ function SetupNameInputView() {
 function SetupTimeSessionStartView() {
     
     // Remove previous input view
-    RemoveInputView()
+    RemoveViewByID('MainInput')
 
     let sessionStart = document.createElement('h1');
     sessionStart.innerHTML = 'START SESSION'
@@ -27,24 +27,30 @@ function SetupTimeSessionStartView() {
 }
 
 function SetupTimeView() {
-    RemoveTimeSessionStartView()
+    RemoveViewByID('StartSessionButton')
 
     let time = document.createElement('h1');
     time.innerHTML = '0 : 00'
     time.setAttribute('id', 'Time')
     time.setAttribute('class', 'textbutton')
     time.addEventListener('click', function () {
-        ControllerTimeEnd()
+        ControllerTimeEnd(GetTimeInView())
     })
 
     document.getElementById('view').appendChild(time)
+}
+
+function SetupDescriptionView() {
+    RemoveViewByID('Time')
+
+    SetupInputView('DESCRIPTION', ControllerDescriptionEntered)
 }
 
 
 function SetupInputView(inputPlaceholder, controllerFunction) {
     
     //Remove previous input view
-    RemoveInputView()
+    RemoveViewByID('MainInput')
 
     let input = document.createElement('input');
     input.setAttribute('id', 'MainInput');
@@ -62,21 +68,33 @@ function SetupInputView(inputPlaceholder, controllerFunction) {
     document.getElementById('view').appendChild(input);
 }
 
-function RemoveInputView() {
-    let input = document.getElementById('MainInput');
-    if(input != undefined)
-        input.remove()
+
+
+
+
+
+
+
+
+
+
+
+
+function RemoveViewByID(viewID) {
+    let elem = document.getElementById(viewID);
+    if(elem != undefined)
+        elem.remove()
 }
 
-function RemoveTimeSessionStartView() {
-    let input = document.getElementById('StartSessionButton');
-    if(input != undefined)
-        input.remove()
-}
-
-function SetTimeInView(timeText) {
+function SetTimeInView(timeText, totalSeconds) {
     let time = document.getElementById('Time');
     time.innerHTML = timeText
+    time.setAttribute('data-totalSeconds', totalSeconds)
+}
+
+function GetTimeInView() {
+    let time = document.getElementById('Time');
+    return time.getAttribute('data-totalSeconds')
 }
 
 

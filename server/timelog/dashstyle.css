@@ -1,0 +1,42 @@
+:root{
+    /* PALETTE */
+     --eggshell: #f4f1deff;
+     --terra-cotta: #e07a5fff;
+     --independence: #3d405bff;
+     --green-sheen: #81b29aff;
+     --deep-champagne: #f2cc8fff;
+ }
+
+ body{
+     background-color: var(--eggshell);
+ }
+
+ #top-title{
+    position: relative;
+    top: 0;
+    height: 5%;
+    transition: all 0.2s ease;
+    color: var(--terra-cotta);
+ }
+
+ #top-title.sticky{
+  
+ }
+
+h1{
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-size: 14px;
+  
+    font-weight: 400;
+    padding: 5%;
+    /*padding-left: 0;*/
+    text-align: center;
+    letter-spacing: 4px;
+   
+    color: var(--independence);
+}
+
+hr{
+    border-top: 2px dashed var(--terra-cotta);
+    width: 100vw;
+}

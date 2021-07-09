@@ -68,11 +68,6 @@ input::placeholder{
 
     animation: dragbar-loadup 1s ease-in-out, 0.5s minimise 2s ease-out;
     animation-fill-mode: forwards;
-    /*
-    animation-fill-mode:  forwards;
-    animation-name: dragbar-loadup;
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out;*/
 
     -webkit-user-select: none;
     user-select: none;

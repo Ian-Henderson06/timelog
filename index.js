@@ -27,13 +27,17 @@ function createWindow() {
         }
     })
 
+    win.on('blur', () => {
+        win.minimize();
+    })
+
     win.center()
     
     win.setAutoHideMenuBar(true) // Hides menubar by default
-    win.setMenuBarVisibility(false) // Hides menubar - might not be Linux compatable 
-    win.setResizable(false) // Can't resize
+    //win.setMenuBarVisibility(false) // Hides menubar - might not be Linux compatable 
+    //win.setResizable(false) // Can't resize
     win.loadFile('mvc/view.html') //
-   // win.webContents.openDevTools(); //TO REMOVE
+    //win.webContents.openDevTools(); //TO REMOVE
 
     Store.initRenderer()
    //win.webContents.send('store-data', store);

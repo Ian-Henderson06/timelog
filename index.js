@@ -7,12 +7,12 @@ function createWindow() {
     let height = display.bounds.height
 
     const win = new BrowserWindow({
-        opacity: 0.94,
+        opacity: 0.96,
 
         //width: 300,
        // height: 5,
         
-        width: 300,
+        width: 280,
         height: 15,
        
         x: 0,
@@ -27,13 +27,13 @@ function createWindow() {
         }
     })
 
-    win.height = 500
+    win.center()
     
     win.setAutoHideMenuBar(true) // Hides menubar by default
     win.setMenuBarVisibility(false) // Hides menubar - might not be Linux compatable 
-    //win.setResizable(false) // Can't resize
+    win.setResizable(false) // Can't resize
     win.loadFile('mvc/view.html') //
-    win.webContents.openDevTools(); //TO REMOVE
+   // win.webContents.openDevTools(); //TO REMOVE
 
     Store.initRenderer()
    //win.webContents.send('store-data', store);

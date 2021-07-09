@@ -15,8 +15,10 @@ function SetupTimeSessionStartView() {
     // Remove previous input view
     RemoveViewByID('MainInput')
 
-    let sessionStart = document.createElement('h1');
-    sessionStart.innerHTML = 'START SESSION'
+    let sessionStart = document.createElement('input')
+   // sessionStart.innerHTML = 'START SESSION'
+    sessionStart.setAttribute('placeholder', 'START SESSION')
+    sessionStart.setAttribute('type', 'text')
     sessionStart.setAttribute('id', 'StartSessionButton')
     sessionStart.setAttribute('class', 'textbutton')
     sessionStart.addEventListener('click', function () {
@@ -29,8 +31,9 @@ function SetupTimeSessionStartView() {
 function SetupTimeView() {
     RemoveViewByID('StartSessionButton')
 
-    let time = document.createElement('h1');
-    time.innerHTML = '0 : 00'
+    let time = document.createElement('input')
+    time.setAttribute('placeholder', '0 : 00')
+    time.setAttribute('type', 'text')
     time.setAttribute('id', 'Time')
     time.setAttribute('class', 'textbutton')
     time.addEventListener('click', function () {
@@ -52,20 +55,20 @@ function SetupInputView(inputPlaceholder, controllerFunction) {
     //Remove previous input view
     RemoveViewByID('MainInput')
 
-    let input = document.createElement('input');
-    input.setAttribute('id', 'MainInput');
-    input.setAttribute('type', 'text');
-    input.setAttribute('placeholder', inputPlaceholder);
+    let input = document.createElement('input')
+    input.setAttribute('id', 'MainInput')
+    input.setAttribute('type', 'text')
+    input.setAttribute('placeholder', inputPlaceholder)
 
      //On server address pressed
      input.onkeypress = function (e) {
         if (!e) e = window.event; //if e is undefined then we will give value to e from window.event
-        var keycode = e.code || e.key;
+        var keycode = e.code || e.key
 
          if (keycode == 'Enter' || keycode == 'NumpadEnter')  //Enter pressed
-            controllerFunction(input.value); //Passed verification
+            controllerFunction(input.value) //Passed verification
     }
-    document.getElementById('view').appendChild(input);
+    document.getElementById('view').appendChild(input)
 }
 
 
@@ -87,13 +90,13 @@ function RemoveViewByID(viewID) {
 }
 
 function SetTimeInView(timeText, totalSeconds) {
-    let time = document.getElementById('Time');
-    time.innerHTML = timeText
+    let time = document.getElementById('Time')
+    time.setAttribute('placeholder', timeText)
     time.setAttribute('data-totalSeconds', totalSeconds)
 }
 
 function GetTimeInView() {
-    let time = document.getElementById('Time');
+    let time = document.getElementById('Time')
     return time.getAttribute('data-totalSeconds')
 }
 

@@ -38,6 +38,14 @@ hr{
     padding-top: 6%;
  }
 
+#loading-bar{
+    width: 90%;
+    height: 1.5vh;
+    background-color: var(--accent);
+    padding: 2%;
+    animation: setup-anim 1s infinite 2s;
+}
+
 
 .footer{
     position: fixed;
@@ -67,8 +75,9 @@ hr{
 }
 
 
- .buttonstyle{
-    margin: 10vh auto;
+
+.basic-button{
+    margin: 7vh auto;
     display: block;
     padding: 1.2% 4%;
     text-transform: uppercase;
@@ -81,12 +90,57 @@ hr{
     color: var(--main);
 
     cursor: pointer;
- }
+}
 
- .buttonstyle:hover{
+.basic-button:hover{
     transition: all 0.2s linear;
     background-color: var(--accent);
- }
+}
+
+
+
+.large-button{
+    margin: 9vh auto;
+    display: block;
+    padding: 2% 10%;
+    text-transform: uppercase;
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-size: 24px;
+    letter-spacing: 3px;
+    font-weight: 300;
+    border: 2px solid var(--accent);
+    background: transparent;
+    color: var(--main);
+
+    cursor: pointer;
+}
+
+
+.large-button:hover{
+    transition: all 0.2s linear;
+    background-color: var(--accent-dark);
+}
+
+
+
+
+
+.basic-input{
+    margin: 6vh auto;
+    display: block;
+    padding: 1.2% 4%;
+    text-transform: uppercase;
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-size: 24px;
+    letter-spacing: 3px;
+    font-weight: 300;
+    border: 2px solid var(--main);
+    background: transparent;
+    color: var(--main);
+    text-align: center;
+
+    cursor: pointer;
+}
 
 .infobox{
     margin: 10vh auto;
@@ -103,9 +157,28 @@ hr{
 }
 
 
+.page-centre{
+    position: absolute;
+    top: 50%; right: 50%;
+    transform: translate(50%,-50%);
+}
 
 
-/*Table */
+/* Animations */
+@keyframes setup-anim {
+    from {width: 0;}
+    to {width: 100%;}
+}
+
+
+
+
+
+
+
+
+
+/*Table Stuff*/
 
 .container th h1{
     font-weight: bold;
